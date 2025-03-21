@@ -1,4 +1,4 @@
-name: Deploy PHP to HostGator
+name: 🚀 Deploy PHP to HostGator
 
 on:
   push:
@@ -7,15 +7,15 @@ on:
 
 jobs:
   deploy:
-    name: Deploy via FTP to HostGator
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: Deploy to HostGator via FTP
-        uses: lukka/ftp-deploy-action@v1
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
