@@ -2,6 +2,8 @@
 session_start();
 require_once './config/db.php';
 require_once './controller/Customer.php';
+require_once __DIR__ . '/components/FloatingMenuButton.php';
+
 
 // ✅ Check if user is logged in and is an admin (level 1)
 if (!isset($_SESSION['user_id']) || $_SESSION['user_level'] !== 'admin') {
@@ -77,8 +79,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
-    <title>Add Customer</title>
+    <title>Add Customer - HoldCompany</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="icon" href="./assets/images/logo-icon.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body class="w-full h-screen" style="background-color: #f74780;">
@@ -88,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?= $message ?>
             <!-- Show success/error message -->
 
-            <form action="/customer_form.php<?= $customer_id ? "/edit/$customer_id" : "" ?>" method="POST">
+            <form action="/customer_form.php<?= $customer_id ? "?edit=?$customer_id" : "" ?>" method="POST">
                 <input type="hidden" name="customer_id" value="<?= $customer_id ?>">
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-gray-700">Customer Name</label>
@@ -125,6 +142,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
+
+    <div class="nav-bar">
+        <?= renderFloatingMenuButton() ?>
+    </div>
+
 </body>
+<script src="script.js"></script>
 
 </html>

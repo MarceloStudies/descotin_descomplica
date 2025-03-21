@@ -4,11 +4,10 @@ require_once __DIR__ . '/controller/User.php';
 require_once __DIR__ . '/controller/Customer.php';
 
 
-// ✅ Check if user is logged in and is an admin (level 1)
-// if (!isset($_SESSION['user_id'])) {
-//     header("Location: /dashboard.php");
-//     exit();
-// }
+if (isset($_SESSION['user_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
 
 $userController = new UserController($pdo);
 $message = "";
@@ -26,11 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// If user is already logged in, redirect
-if (isset($_SESSION['user_id'])) {
-    header("Location: dashboard.php");
-    exit();
-}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -39,9 +35,11 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
-    <title>Login - Hold Company</title>
+    <title>Login - HoldCompany</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link rel="icon" href="./assets/images/logo-icon.png" type="image/x-icon">
+
 </head>
 
 <body class="w-full h-screen" style="background-color: #f74780;display: flex;justify-content: center;">

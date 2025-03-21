@@ -34,7 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
-    <title>Hold Company</title>
+    <title>Register - HoldCompany</title>
+    <link rel="icon" href="./assets/images/logo-icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="w-full h-screen bg-pink-500">
     <div class="w-full h-full flex justify-center items-center">
         <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 ">
-            <form class="space-y-6" action="<?php require_once  __DIR__ . '/../views/register.php'?>?responde=success"
+            <form class="space-y-6" action="<?php require_once  __DIR__ . '/../views/register.php' ?>?responde=success"
                 method="POST">
                 <h5 class="text-xl font-medium text-gray-900 ">Create an Account</h5>
                 <?= $message ?>

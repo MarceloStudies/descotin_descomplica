@@ -2,14 +2,14 @@
 session_start();
 require_once __DIR__ . '/config/db.php';
 require_once __DIR__ . '/controller/Customer.php';
+require_once __DIR__ . '/components/FloatingMenuButton.php';
+
 
 //✅ Redirect to login if not authenticated
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
-
-
 
 $customerController = new CustomerController($pdo);
 $customers = []; // Default empty
@@ -32,55 +32,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard - HoldCompany</title>
+    <link rel="icon" href="./assets/images/logo-icon.png" type="image/x-icon">
+
+
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <style>
-    .status-active {
-        color: #5f7861;
-        font-weight: bold;
-    }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    .status-inactive {
-        color: #f74780;
-        font-weight: bold;
-    }
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    .container-descontin {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-        height: 76%;
-        width: 100%;
-        max-width: 920px;
-        background-color: #f74780;
-        border-radius: 40px;
+    <link rel="stylesheet" href="style.css">
 
 
-    }
-
-    .container-descontin img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-    }
-
-    .container-descontin .title {
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-        margin-top: 20px;
-    }
-
-    .container-descontin input {
-        width: 100%;
-        /* max-width: 300px; */
-        padding: 10px;
-        border-radius: 10px;
-        border: none;
-        margin-top: 10px;
-    }
-    </style>
 </head>
 
 <body class="w-full h-screen bg-gray-200 flex justify-center items-center">
@@ -125,18 +94,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
         </div>
 
+    </div>
 
-
-        <?php if ($_SESSION['user_level'] === 'admin') : ?>
-        <div class="mt-14">
-            <a href="customer_form.php" class="text-gray-200  px-4 py-2 border rounded-md">Add Customer</a>
-        </div>
-        <?php endif; ?>
-
+    <div class="nav-bar">
+        <?= renderFloatingMenuButton() ?>
     </div>
 
 
-
 </body>
+
+<script src="script.js"></script>
 
 </html>
