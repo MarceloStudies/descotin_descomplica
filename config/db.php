@@ -5,10 +5,10 @@ if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 }
 
 // Database configuration
-$host = 'mysql'; // or 'localhost'
-$dbname = 'descontin_holdcompany'; // Change this to your database name
-$username = 'root'; // Default XAMPP MySQL user
-$password = 'rootpassword'; // Default XAMPP MySQL password (empty)
+$host = '162.241.2.123'; // or 'localhost'
+$dbname = 'carta070_descontin_descomplica'; // Change this to your database name
+$username = 'carta070_marcelo_dev'; // Default XAMPP MySQL user
+$password = '{4uv[ZhQ4.#}'; // Default XAMPP MySQL password (empty)
 
 // PDO Connection
 try {
