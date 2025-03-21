@@ -1,0 +1,36 @@
+name: Deploy PHP to HostGator
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via FTP to HostGator
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: composer install --no-dev --prefer-dist
+
+      - name: Deploy to HostGator via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: "./"
+          server-dir: "/public_html/"  # Change this if needed
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/*
+            **/vendor/*
+            .env
+
+      - name: Clear Cache (Optional)
+        run: curl -X GET "https://${{ secrets.HOSTGATOR_DOMAIN }}/clear-cache.php"
