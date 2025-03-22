@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../controller/User.php';
+require_once __DIR__ . '/config/db.php';
+require_once __DIR__ . '/controller/User.php';
+
+
 
 // Initialize UserController
 $userController = new UserController($pdo);
@@ -26,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -35,19 +38,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <title>Register - HoldCompany</title>
-    <link rel="icon" href="./assets/images/logo-icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link rel="icon" href="./assets/images/logo-icon.png" type="image/x-icon">
+
 </head>
 
 <body class="w-full h-screen bg-pink-500">
     <div class="w-full h-full flex justify-center items-center">
         <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 ">
-            <form class="space-y-6" action="<?php require_once  __DIR__ . '/../views/register.php' ?>?responde=success"
-                method="POST">
+            <form class="space-y-6" action="register.phpgit ?responde=success" method="POST">
                 <h5 class="text-xl font-medium text-gray-900 ">Create an Account</h5>
                 <?= $message ?>
-                <!-- Show success/error message -->
 
                 <div>
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Full Name</label>
