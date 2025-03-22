@@ -23,7 +23,7 @@ jobs:
           port: 21
           passive: true
           local-dir: "./"
-          server-dir: "/public_html" 
+          server-dir: "/public_html/" 
           exclude: |
             **/.git*
             **/.github*
