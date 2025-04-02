@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="w-full h-screen bg-pink-500">
     <div class="w-full h-full flex justify-center items-center">
         <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 ">
-            <form class="space-y-6" action="register.phpgit ?responde=success" method="POST">
+            <form class="space-y-6" action="register.php?responde=success" method="POST">
                 <h5 class="text-xl font-medium text-gray-900 ">Crie sua conta</h5>
                 <?= $message ?>
 
