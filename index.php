@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md">
             <form action="/" method="POST">
-                <h5 class="text-xl font-medium text-gray-900 mb-4">Login to your account</h5>
+                <h5 class="text-xl font-medium text-gray-900 mb-4">Acesse sua conta</h5>
                 <?= $message ?>
                 <!-- Show error message -->
 
@@ -65,13 +65,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="mb-4">
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
                     <input type="password" name="password" id="password" required
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                 </div>
 
                 <button type="submit"
-                    class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">Login</button>
+                    class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">Entrar</button>
+                <p class="mt-4 text-sm text-gray-600">Não tem uma conta? <a href="register.php"
+                        class="text-blue-600 hover:underline">Crie uma</a></p>
+
             </form>
         </div>
     </div>
