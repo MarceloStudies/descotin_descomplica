@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </span><?= htmlspecialchars($customer['company_name']) ?></td>
                         <td class=" <?= ($customer['status'] === 'active') ? 'status-active' : 'status-inactive' ?>">
                             <span class="font-bold text-gray-600">Status: </span>
-                            <?= strtoupper(htmlspecialchars($customer['status'])) ?>
+                            <?= strtoupper(htmlspecialchars($customer['status']) === 'active' ? 'ATIVO' : 'DESATIVADO') ?>
                         </td>
                         <?php if ($_SESSION['user_level'] === 'admin') : ?>
                         <td class="">
