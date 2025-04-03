@@ -44,11 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body class="w-full h-screen" style="background-color: #f74780;display: flex;justify-content: center;">
 
-    <div class="w-full h-full flex flex-col justify-center items-center">
-        <div class="container-descontin-image" style="
-    position: absolute;
-    top: 10px;
-">
+    <div class="w-full h-full flex flex-col justify-center items-center gap-4">
+        <div class="container-descontin-image">
             <img src="./assets/images/logo.png" alt="Hold Company Logo"
                 style="width: 100%; max-width: 300px; height: auto; ">
         </div>
