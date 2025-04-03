@@ -47,15 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?= time() ?>">
 
 
 </head>
 
 <body class="w-full h-screen bg-gray-200 flex justify-center items-center">
     <div class="container-descontin">
-        <img src="./assets/images/logo.png" alt="">
-        <div class="" style="width:72%">
+        <img src="./assets/images/logo.png" alt="logo do sistema">
+        <div class="block-descontin">
             <span class="title"> Digite o nome ou o código do usuário:</span>
             <form class="w-full flex flex-row gap-3" action="dashboard.php" method="POST">
                 <input type="text" name="search" value="<?= htmlspecialchars($search) ?>"
@@ -63,19 +63,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Search</button> -->
             </form>
             <?php if (!empty($customers)) : ?>
-            <table class=" w-full mt-6">
-                <thead>
-                </thead>
+            <table class=" table-descontin  bg-gray-200 w-full mt-6">
+
                 <tbody>
                     <?php foreach ($customers as $customer) : ?>
-                    <tr class="bg-gray-200 flex flex-row gap-3 py-2 rounded-md " style="justify-content: space-around;">
-                        <td class=""><span class="font-bold text-gray-600">Nome:
+                    <tr class="bg-gray-200  flex flex-row gap-3 py-2 rounded-md "
+                        style="justify-content: space-around;">
+                        <td class="titulo"><span class=" font-bold text-gray-600">Nome:
                             </span><?= htmlspecialchars($customer['name']) ?></td>
-                        <td class=""><span class="font-bold text-gray-600">Codigo:
+                        <td class="titulo"><span class="font-bold text-gray-600">Codigo:
                             </span><?= htmlspecialchars($customer['code']) ?></td>
-                        <td class=""><span class="font-bold text-gray-600">Empresa:
+                        <td class="titulo"><span class="font-bold text-gray-600">Empresa:
                             </span><?= htmlspecialchars($customer['company_name']) ?></td>
-                        <td class=" <?= ($customer['status'] === 'active') ? 'status-active' : 'status-inactive' ?>">
+                        <td
+                            class="titulo <?= ($customer['status'] === 'active') ? 'status-active' : 'status-inactive' ?>">
                             <span class="font-bold text-gray-600">Status: </span>
                             <?= strtoupper(htmlspecialchars($customer['status']) === 'active' ? 'ATIVO' : 'DESATIVADO') ?>
                         </td>
