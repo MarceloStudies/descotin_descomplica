@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
-    <title>Dashboard - HoldCompany</title>
+    <title>Dashboard - Descontin</title>
     <link rel="icon" href="./assets/images/logo-icon.png" type="image/x-icon">
 
 
